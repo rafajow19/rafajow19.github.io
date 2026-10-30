@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#150b0e">
+<meta name="description" content="Rafael Prestes, estudante do curso Técnico em Informática no IFSP Campus Bauru.">
+<title>Rafael Prestes | Técnico em Informática no IFSP Bauru</title>
+<style>
+:root{
+  --bg:#150b0e; --panel:#21131a; --line:#40222b; --text:#f5ebec; --muted:#c3a6ab;
+  --accent:#ff4d5e; --on-accent:#1a0407; --ok:#5ee29a; --warn:#f2b84b;
+  --mono:ui-monospace,"SF Mono","Cascadia Mono",Menlo,Consolas,monospace;
+  --sans:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+}
+@media (prefers-color-scheme: light){
+  :root:not([data-theme="dark"]){
+    --bg:#fbf4f4; --panel:#ffffff; --line:#e8d0d4; --text:#2b1217; --muted:#6d4b51;
+    --accent:#c4152a; --on-accent:#ffffff; --ok:#14804a; --warn:#9a6700;
+  }
+}
+:root[data-theme="light"]{
+  --bg:#fbf4f4; --panel:#ffffff; --line:#e8d0d4; --text:#2b1217; --muted:#6d4b51;
+  --accent:#c4152a; --on-accent:#ffffff; --ok:#14804a; --warn:#9a6700;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:4.5rem}
+body{margin:0;background:var(--bg);color:var(--text);font:1.0625rem/1.65 var(--sans)}
+a{color:var(--accent)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:3px}
+.skip{position:absolute;left:-999px;top:0;background:var(--accent);color:var(--on-accent);padding:.5rem 1rem;z-index:20}
+.skip:focus{left:0}
+header{position:sticky;top:0;z-index:10;background:var(--bg);border-bottom:1px solid var(--line)}
+.bar{max-width:62rem;margin:0 auto;padding:.75rem 1.25rem;display:flex;align-items:center;gap:1.25rem;flex-wrap:wrap}
+.logo{font-family:var(--mono);font-weight:700;color:var(--accent);text-decoration:none;margin-right:auto}
+nav ul{display:flex;gap:1.1rem;list-style:none;margin:0;padding:0;flex-wrap:wrap}
+nav a{color:var(--muted);text-decoration:none;font-size:.95rem}
+nav a:hover{color:var(--text)}
+main{max-width:62rem;margin:0 auto;padding:0 1.25rem}
+section{padding:3.5rem 0 1rem}
+h1{font-size:clamp(2.2rem,6vw,3.6rem);line-height:1.1;margin:0 0 .5rem;letter-spacing:-.02em}
+h2::before{content:"# ";color:var(--accent)}
+h2{font-size:1.6rem;margin:0 0 1.25rem;padding-bottom:.5rem;border-bottom:1px solid var(--line)}
+h3{font-size:1.1rem;margin:0 0 .4rem}
+.hero{padding-top:4.5rem}
+.role{font-family:var(--mono);color:var(--accent);font-size:1.15rem;margin:0 0 1.5rem}
+.role::before{content:"> ";color:var(--muted)}
+.cursor{display:inline-block;width:.6ch;height:1.1em;background:var(--accent);vertical-align:-.15em;animation:blink 1.1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+p{max-width:44rem}
+.list{list-style:none;padding:0;margin:0;max-width:44rem}
+.list li{padding:.6rem 0;border-bottom:1px dashed var(--line)}
+.list b{color:var(--accent);font-weight:600}
+/* painéis estilo rack */
+.rack{display:grid;gap:.75rem}
+.unit{background:var(--panel);border:1px solid var(--line);border-top:3px solid var(--accent);border-radius:2px;padding:1rem 1.25rem;display:grid;grid-template-columns:auto 1fr;gap:.25rem 1.25rem;align-items:start}
+.unit .led{font-family:var(--mono);font-size:.85rem;color:var(--ok);white-space:nowrap}
+.unit .led::before{content:"";display:inline-block;width:.6rem;height:.6rem;border-radius:0;background:var(--ok);margin-right:.5rem}
+.unit.wip{border-top-color:var(--warn)}
+.unit.wip .led{color:var(--warn)}
+.unit.wip .led::before{background:var(--warn)}
+.unit p{margin:0;color:var(--muted)}
+.unit .body{grid-column:2}
+.tags{display:flex;flex-wrap:wrap;gap:.4rem;margin:.75rem 0 0;padding:0;list-style:none}
+.tags li{font-family:var(--mono);font-size:.8rem;border:1px solid var(--line);color:var(--muted);padding:.1rem .5rem;border-radius:3px}
+.filters{display:flex;gap:.5rem;margin:0 0 1rem;flex-wrap:wrap}
+.filters button{font:inherit;font-size:.9rem;background:none;color:var(--muted);border:1px solid var(--line);padding:.35rem .9rem;border-radius:999px;cursor:pointer}
+.filters button[aria-pressed="true"]{background:var(--accent);color:var(--on-accent);border-color:var(--accent)}
+.certs{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));gap:.75rem}
+.certs a{display:block;background:var(--panel);border:1px solid var(--line);border-radius:4px;padding:.9rem 1rem;color:var(--text);text-decoration:none}
+.certs a:hover{border-color:var(--accent)}
+.certs small{display:block;color:var(--muted)}
+.mail{font-family:var(--mono);font-size:1.15rem}
+.links{display:flex;gap:1rem;flex-wrap:wrap;margin-top:1rem}
+.links a{border:1px solid var(--line);padding:.5rem 1rem;border-radius:4px;text-decoration:none}
+.links a:hover{border-color:var(--accent)}
+footer{max-width:62rem;margin:3rem auto 0;padding:1.5rem 1.25rem 3rem;border-top:1px solid var(--line);color:var(--muted);font-size:.9rem}
+#tema{background:none;border:1px solid var(--line);color:var(--muted);border-radius:4px;padding:.3rem .7rem;cursor:pointer;font:inherit;font-size:.85rem}
+@media (max-width:34rem){.unit{grid-template-columns:1fr}.unit .body{grid-column:1}}
+@media (prefers-reduced-motion:reduce){.cursor{animation:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+
+<header>
+  <div class="bar">
+    <a class="logo" href="#inicio">rafael@bauru:~$</a>
+    <nav aria-label="Principal">
+      <ul>
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#formacao">Formação</a></li>
+        <li><a href="#atuacao">Atuação</a></li>
+        <li><a href="#projetos">Projetos</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+    </nav>
+    <button id="tema" type="button" aria-label="Alternar tema claro e escuro">Tema</button>
+  </div>
+</header>
+
+<main id="conteudo">
+  <section class="hero" id="inicio">
+    <h1>Rafael Prestes</h1>
+    <p class="role">Estudante de Técnico em Informática no IFSP<span class="cursor" aria-hidden="true"></span></p>
+  </section>
+
+  <section id="sobre">
+    <h2>Sobre</h2>
+    <p>Sou aluno do 4º e último semestre do curso Técnico em Informática no Instituto Federal de São Paulo, Campus Bauru. Gosto de programação, segurança digital e desenvolvimento de software, e estou aprendendo na prática, construindo projetos e estudando sempre que posso.</p>
+  </section>
+
+  <section id="formacao">
+    <h2>Formação</h2>
+    <ul class="list">
+      <li><b>Técnico em Informática</b> Instituto Federal de São Paulo, Campus Bauru, 4º semestre (em andamento)</li>
+    </ul>
+  </section>
+
+  <section id="atuacao">
+    <h2>Interesses</h2>
+    <div class="rack">
+      <div class="unit"><span class="led">Programação</span><div class="body"><h3>Lógica e código</h3><p>Aprender linguagens, resolver problemas e transformar ideias em programas que funcionam.</p></div></div>
+      <div class="unit"><span class="led">Cibersegurança</span><div class="body"><h3>Proteção de sistemas e redes</h3><p>Entender como ataques acontecem para saber como se defender e proteger dados.</p></div></div>
+      <div class="unit"><span class="led">Desenvolvimento</span><div class="body"><h3>Desenvolvimento de software</h3><p>Planejar, construir e melhorar aplicações, do sistema simples ao projeto completo.</p></div></div>
+    </div>
+  </section>
+
+  <section id="projetos">
+    <h2>Projetos</h2>
+    <div class="filters" role="group" aria-label="Filtrar projetos">
+      <button type="button" data-f="todos" aria-pressed="true">Todos</button>
+      <button type="button" data-f="ok" aria-pressed="false">Concluídos</button>
+      <button type="button" data-f="wip" aria-pressed="false">Em andamento</button>
+    </div>
+    <div class="rack" id="lista-projetos">
+      <article class="unit wip" data-s="wip">
+        <span class="led">Em andamento</span>
+        <div class="body">
+          <h3>Projeto integrador de final de curso</h3>
+          <p>Projeto de conclusão do curso Técnico em Informática no IFSP Bauru, que reúne o que aprendi nos quatro semestres.</p>
+          <ul class="tags"><li>Projeto de curso</li><li>IFSP Bauru</li></ul>
+        </div>
+      </article>
+      <article class="unit" data-s="ok">
+        <span class="led">Concluído</span>
+        <div class="body">
+          <h3>Mercado online com banco de dados</h3>
+          <p>Site de mercado integrado a um banco de dados, com cadastro e consulta de produtos guardados no MySQL.</p>
+          <ul class="tags"><li>JavaScript</li><li>HTML</li><li>MySQL</li></ul>
+        </div>
+      </article>
+      <article class="unit" data-s="ok">
+        <span class="led">Concluído</span>
+        <div class="body">
+          <h3>Jogo da marmota</h3>
+          <p>Jogo de acertar a marmota que sai do buraco, feito para funcionar no celular com programação em blocos.</p>
+          <ul class="tags"><li>MIT App Inventor</li><li>Mobile</li></ul>
+        </div>
+      </article>
+</div>
+  </section>
+
+    <section id="contato">
+    <h2>Entre em contato</h2>
+    <p>Para conversar sobre projetos, estágio ou oportunidades, escreva para:</p>
+    <p class="mail"><a href="mailto:rafajpw@gmail.com">rafajpw@gmail.com</a></p>
+    <div class="links">
+      <a href="https://github.com/rafajow19" rel="noopener">GitHub</a>
+    </div>
+  </section>
+</main>
+
+<footer>© 2026 Rafael Prestes.</footer>
+
+<script>
+(function(){
+  var root=document.documentElement;
+  try{var t=localStorage.getItem("tema");if(t)root.setAttribute("data-theme",t)}catch(e){}
+  document.getElementById("tema").addEventListener("click",function(){
+    var dark=root.getAttribute("data-theme")==="dark"||
+      (!root.getAttribute("data-theme")&&!matchMedia("(prefers-color-scheme: light)").matches);
+    var n=dark?"light":"dark";
+    root.setAttribute("data-theme",n);
+    try{localStorage.setItem("tema",n)}catch(e){}
+  });
+  var btns=document.querySelectorAll(".filters button");
+  btns.forEach(function(b){
+    b.addEventListener("click",function(){
+      btns.forEach(function(x){x.setAttribute("aria-pressed",x===b)});
+      document.querySelectorAll("#lista-projetos .unit").forEach(function(u){
+        u.hidden=!(b.dataset.f==="todos"||u.dataset.s===b.dataset.f);
+      });
+    });
+  });
+})();
+</script>
+</body>
+</html>
