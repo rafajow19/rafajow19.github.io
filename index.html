@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#150b0e">
+<meta name="description" content="Rafael Prestes, estudante do curso Técnico em Informática no IFSP Campus Bauru.">
+<title>Rafael Prestes | Técnico em Informática no IFSP Bauru</title>
+<link rel="stylesheet" href="css/style.css?v=2">
+</head>
+<body>
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+
+<header>
+  <div class="bar">
+    <a class="logo" href="#inicio">rafael@bauru:~$</a>
+    <nav aria-label="Principal">
+      <ul>
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#formacao">Formação</a></li>
+        <li><a href="#atuacao">Atuação</a></li>
+        <li><a href="#projetos">Projetos</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+    </nav>
+    <button id="tema" type="button" aria-label="Alternar tema claro e escuro">Tema</button>
+  </div>
+</header>
+
+<main id="conteudo">
+  <section class="hero" id="inicio">
+    <h1>Rafael Prestes</h1>
+    <p class="role">Estudante de Técnico em Informática no IFSP<span class="cursor" aria-hidden="true"></span></p>
+  </section>
+
+  <section id="sobre">
+    <h2>Sobre</h2>
+    <p>Sou aluno do 4º e último semestre do curso Técnico em Informática no Instituto Federal de São Paulo, Campus Bauru. Gosto de programação, segurança digital e desenvolvimento de software, e estou aprendendo na prática, construindo projetos e estudando sempre que posso.</p>
+  </section>
+
+  <section id="formacao">
+    <h2>Formação</h2>
+    <ul class="list">
+      <li><b>Técnico em Informática</b> Instituto Federal de São Paulo, Campus Bauru, 4º semestre (em andamento)</li>
+    </ul>
+  </section>
+
+  <section id="atuacao">
+    <h2>Interesses</h2>
+    <div class="rack">
+      <div class="unit"><span class="led">Programação</span><div class="body"><h3>Lógica e código</h3><p>Aprender linguagens, resolver problemas e transformar ideias em programas que funcionam.</p></div></div>
+      <div class="unit"><span class="led">Cibersegurança</span><div class="body"><h3>Proteção de sistemas e redes</h3><p>Entender como ataques acontecem para saber como se defender e proteger dados.</p></div></div>
+      <div class="unit"><span class="led">Desenvolvimento</span><div class="body"><h3>Desenvolvimento de software</h3><p>Planejar, construir e melhorar aplicações, do sistema simples ao projeto completo.</p></div></div>
+    </div>
+  </section>
+
+  <section id="projetos">
+    <h2>Projetos</h2>
+    <div class="filters" role="group" aria-label="Filtrar projetos">
+      <button type="button" data-f="todos" aria-pressed="true">Todos</button>
+      <button type="button" data-f="ok" aria-pressed="false">Concluídos</button>
+      <button type="button" data-f="wip" aria-pressed="false">Em andamento</button>
+    </div>
+    <div class="rack" id="lista-projetos">
+      <article class="unit wip" data-s="wip">
+        <span class="led">Em andamento</span>
+        <div class="body">
+          <h3>Re9 Sempre</h3>
+          <p>Site gamificado de incentivo à reciclagem com bonificação, feito como projeto integrador de final de curso.</p>
+          <ul class="tags"><li>Projeto integrador</li><li>Gamificação</li><li>Reciclagem</li></ul>
+        </div>
+      </article>
+      <article class="unit" data-s="ok">
+        <span class="led">Concluído</span>
+        <div class="body">
+          <h3>Mercado online com banco de dados</h3>
+          <p>Site de mercado integrado a um banco de dados, com cadastro e consulta de produtos guardados no MySQL.</p>
+          <ul class="tags"><li>JavaScript</li><li>HTML</li><li>MySQL</li></ul>
+        </div>
+      </article>
+      <article class="unit" data-s="ok">
+        <span class="led">Concluído</span>
+        <div class="body">
+          <h3>Jogo da marmota</h3>
+          <p>Jogo de acertar a marmota que sai do buraco, feito para funcionar no celular com programação em blocos.</p>
+          <ul class="tags"><li>MIT App Inventor</li><li>Mobile</li></ul>
+        </div>
+      </article>
+</div>
+  </section>
+
+    <section id="contato">
+    <h2>Entre em contato</h2>
+    <p>Para conversar sobre projetos, estágio ou oportunidades, escreva para:</p>
+    <p class="mail"><a href="mailto:rafajpw@gmail.com">rafajpw@gmail.com</a></p>
+    <div class="links">
+      <a href="https://github.com/rafajow19" rel="noopener">GitHub</a>
+    </div>
+  </section>
+</main>
+
+<footer>© 2026 Rafael Prestes.</footer>
+
+<script src="js/main.js?v=2"></script>
+</body>
+</html>
